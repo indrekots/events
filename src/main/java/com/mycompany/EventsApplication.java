@@ -1,5 +1,6 @@
 package com.mycompany;
 
+import com.mycompany.resources.EventResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
@@ -23,7 +24,8 @@ public class EventsApplication extends Application<EventsConfiguration> {
     @Override
     public void run(final EventsConfiguration configuration,
                     final Environment environment) {
-        // TODO: implement application
+        final EventResource eventResource = new EventResource();
+        environment.jersey().register(eventResource);
     }
 
 }
